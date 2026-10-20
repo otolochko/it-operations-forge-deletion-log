@@ -17,6 +17,12 @@ Every deletion is recorded. Jira admins browse, filter and export the log from o
 
 ---
 
+## 🎬 Demo
+
+[![Watch the Deletion Log demo](https://res.cloudinary.com/eyxelttg/video/upload/so_1,w_1200/v1792520656/deletion-log-for-jira.jpg)](https://res.cloudinary.com/eyxelttg/video/upload/v1792520656/deletion-log-for-jira.mp4)
+
+[▶ Watch the demo (MP4)](https://res.cloudinary.com/eyxelttg/video/upload/v1792520656/deletion-log-for-jira.mp4)
+
 ## ✨ Why
 
 A Jira Automation rule used to react to every work item deletion. That worked, but each deletion burned an Automation run. Deletion Log does the same job with a Forge trigger and storage, so deletions no longer consume runs.
@@ -186,3 +192,7 @@ Build it only if a real case of lost content happens, and only after comparing t
 
 - Record project trash and purge events (`avi:jira:softdeleted:project`, `avi:jira:deleted:project`).
 - Alert when one user deletes more than N work items in a short window.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
