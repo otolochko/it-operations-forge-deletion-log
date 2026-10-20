@@ -1,0 +1,7 @@
+node_modules/
+static/main/build/
+.env
+.DS_Store
+
+# Forge manifest with the registered app id; commit manifest.yml.example instead
+manifest.yml

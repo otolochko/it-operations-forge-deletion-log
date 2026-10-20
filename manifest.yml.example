@@ -1,0 +1,79 @@
+modules:
+  jira:globalPage:
+    - key: deletion-log-page
+      resource: main
+      resolver:
+        function: resolver
+      title: Deletion Log
+      icon: resource:main;icon.svg
+      # UX only: hides the menu item from non-admins. The resolver check is the real gate.
+      displayConditions:
+        isAdmin: true
+  trigger:
+    - key: issue-deleted-trigger
+      function: on-issue-deleted
+      events:
+        - avi:jira:deleted:issue
+  scheduledTrigger:
+    - key: retention-cleanup
+      function: on-retention-tick
+      interval: day
+  function:
+    - key: resolver
+      handler: index.handler
+    - key: on-issue-deleted
+      handler: index.onIssueDeleted
+    - key: on-retention-tick
+      handler: index.onRetentionTick
+resources:
+  - key: main
+    path: static/main/build
+app:
+  id: ari:cloud:ecosystem::app/REPLACE_ME
+  runtime:
+    name: nodejs24.x
+  storage:
+    entities:
+      - name: deletion
+        attributes:
+          issueId: { type: string }
+          issueKey: { type: string }
+          projectId: { type: string }
+          projectKey: { type: string }
+          projectName: { type: string }
+          summary: { type: string }
+          issueTypeName: { type: string }
+          statusName: { type: string }
+          reporterId: { type: string }
+          assigneeId: { type: string }
+          creatorId: { type: string }
+          deletedById: { type: string }
+          parentKey: { type: string }
+          createdAt: { type: string }
+          updatedAt: { type: string }
+          deletedAt: { type: string }
+          schemaVersion: { type: integer }
+        indexes:
+          - name: by-deleted-at
+            range:
+              - deletedAt
+          - name: by-project
+            partition:
+              - projectId
+            range:
+              - deletedAt
+          - name: by-actor
+            partition:
+              - deletedById
+            range:
+              - deletedAt
+          - name: by-issue-key
+            partition:
+              - issueKey
+            range:
+              - deletedAt
+permissions:
+  scopes:
+    - read:jira-work
+    - read:jira-user
+    - storage:app
