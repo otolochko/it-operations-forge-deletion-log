@@ -1,14 +1,11 @@
 modules:
-  jira:globalPage:
+  jira:adminPage:
     - key: deletion-log-page
       resource: main
       resolver:
         function: resolver
       title: Deletion Log
-      icon: resource:main;icon.svg
-      # UX only: hides the menu item from non-admins. The resolver check is the real gate.
-      displayConditions:
-        isAdmin: true
+      icon: resource:app-icons;icon.svg
   trigger:
     - key: issue-deleted-trigger
       function: on-issue-deleted
@@ -28,6 +25,8 @@ modules:
 resources:
   - key: main
     path: static/main/build
+  - key: app-icons
+    path: public
 app:
   id: ari:cloud:ecosystem::app/REPLACE_ME
   runtime:

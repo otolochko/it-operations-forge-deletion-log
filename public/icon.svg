@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6B7A99"/>
+      <stop offset="1" stop-color="#2E3A52"/>
+    </linearGradient>
+  </defs>
+  <rect width="144" height="144" rx="32" fill="url(#bg)"/>
+  <!-- bin: handle, lid and body -->
+  <path d="M60 37 V32 Q60 27 65 27 H79 Q84 27 84 32 V37" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 41 H112" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+  <path d="M41 54 L46 110 Q47 118 55 118 H89 Q97 118 98 110 L103 54" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- log rows: newest on top in amber, older ones fade -->
+  <rect x="56" y="60" width="32" height="10" rx="5" fill="#FFAB00"/>
+  <rect x="57" y="78" width="30" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.8"/>
+  <rect x="58" y="96" width="28" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.55"/>
+</svg>

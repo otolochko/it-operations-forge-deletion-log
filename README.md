@@ -51,7 +51,7 @@ flowchart LR
 - The trigger never calls Jira. It stores what the event payload contains.
 - No `asApp()` calls anywhere.
 - No external egress and no remote CDNs. Everything is bundled.
-- Access is enforced in the resolver on every call through `/rest/api/3/mypermissions?permissions=ADMINISTER`, run as the current user. `displayConditions: isAdmin` on the page only hides the menu item.
+- Access is enforced in the resolver on every call through `/rest/api/3/mypermissions?permissions=ADMINISTER`, run as the current user. The page is a `jira:adminPage`, so it only appears in Jira admin settings, but the resolver check is the real gate.
 - Display names are never stored. The browser resolves account IDs as the current user.
 
 ## 🗄️ Stored data
