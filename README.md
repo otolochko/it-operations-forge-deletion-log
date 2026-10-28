@@ -97,7 +97,7 @@ forge variables set -e production RETENTION_DAYS 365
 
 ## 🛠️ Development
 
-Requires Node 22 and the [Forge CLI](https://developer.atlassian.com/platform/forge/getting-started/).
+Requires Node 24 and the [Forge CLI](https://developer.atlassian.com/platform/forge/getting-started/).
 
 ```bash
 npm install
