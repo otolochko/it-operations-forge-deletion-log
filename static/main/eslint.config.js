@@ -18,7 +18,7 @@ export default [
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     settings: { react: { version: '19.3' } },
-    rules: { 'react/prop-types': 'off' },
+    rules: { 'react/prop-types': 'off', 'no-console': 'error' },
   },
   {
     files: ['vite.config.js', 'eslint.config.js'],

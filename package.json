@@ -6,9 +6,12 @@
   "type": "module",
   "description": "Private Forge app that records deleted Jira work items",
   "scripts": {
-    "build": "npm --prefix static/main run build",
+    "setup": "git config core.hooksPath .githooks && npm ci && npm --prefix static/main ci",
+    "lint": "eslint . && npm --prefix static/main run lint",
     "test": "vitest run",
-    "lint": "eslint . && npm --prefix static/main run lint"
+    "build": "npm --prefix static/main run build",
+    "check:fast": "node scripts/check-rules.mjs && npm run lint",
+    "check": "npm run check:fast && npm test && npm run build && node scripts/check-rules.mjs --bundle"
   },
   "dependencies": {
     "@forge/api": "8.3.0",
@@ -21,5 +24,8 @@
     "eslint": "9.39.5",
     "globals": "17.13.0",
     "vitest": "5.0.5"
+  },
+  "config": {
+    "maxBundleKb": 500
   }
 }
