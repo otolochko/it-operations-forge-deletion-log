@@ -14,10 +14,10 @@
     "check": "npm run check:fast && npm test && npm run build && node scripts/check-rules.mjs --bundle"
   },
   "dependencies": {
-    "@forge/api": "8.3.0",
-    "@forge/events": "3.0.8",
-    "@forge/kvs": "2.1.0",
-    "@forge/resolver": "2.0.1"
+    "@forge/api": "8.4.0",
+    "@forge/events": "3.0.9",
+    "@forge/kvs": "2.1.1",
+    "@forge/resolver": "2.0.2"
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",
